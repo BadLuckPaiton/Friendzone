@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://Objects/Switch/Switch.gd" type="Script" id=1]
+[ext_resource path="res://Objects/ControlSwitch/ControlSwitch.gd" type="Script" id=1]
 [ext_resource path="res://icon.png" type="Texture" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
@@ -13,30 +13,30 @@ extents = Vector2( 10, 10 )
 custom_solver_bias = 0.0
 extents = Vector2( 10, 10 )
 
-[node name="StaticBody2D" type="StaticBody2D"]
+[node name="KinematicBody2D" type="KinematicBody2D" groups=[
+"ControlSwitch",
+]]
 
-z_index = -1
 input_pickable = false
-collision_layer = 4
-collision_mask = 4
-constant_linear_velocity = Vector2( 0, 0 )
-constant_angular_velocity = 0.0
-friction = 1.0
-bounce = 0.0
+collision_layer = 3
+collision_mask = 3
+collision/safe_margin = 0.08
 script = ExtResource( 1 )
-_sections_unfolded = [ "Collision" ]
+_sections_unfolded = [ "Collision", "collision" ]
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
 
-modulate = Color( 0.902344, 0.0458221, 0.828736, 1 )
+modulate = Color( 1, 0, 0.65625, 1 )
 texture = ExtResource( 2 )
 _sections_unfolded = [ "Visibility" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
 
+position = Vector2( -0.80887, 2.35375 )
+scale = Vector2( 2.94039, 2.79902 )
 shape = SubResource( 1 )
 
-[node name="switch" type="Area2D" parent="." index="2"]
+[node name="Area2D" type="Area2D" parent="." index="2"]
 
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
@@ -46,10 +46,10 @@ angular_damp = 1.0
 audio_bus_override = false
 audio_bus_name = "Master"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="switch" index="0"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" index="0"]
 
+position = Vector2( -1.90735e-06, 0.883554 )
+scale = Vector2( 3.07692, 2.96866 )
 shape = SubResource( 2 )
-
-[connection signal="body_entered" from="switch" to="." method="_on_switch_body_entered"]
 
 

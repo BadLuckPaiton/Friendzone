@@ -1,41 +1,40 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://Character/ShotterCharacter/Bullet/Bullet.gd" type="Script" id=1]
+[ext_resource path="res://Enemy/Bullet_Enemy.gd" type="Script" id=1]
 [ext_resource path="res://Tiles/Basic/Images/blank.jpg" type="Texture" id=2]
 
 [sub_resource type="CircleShape2D" id=1]
 
 custom_solver_bias = 0.0
-radius = 10.0
+radius = 14.0342
 
 [sub_resource type="CircleShape2D" id=2]
 
 custom_solver_bias = 0.0
-radius = 10.0
+radius = 8.72627
 
-[node name="KinematicBody2D" type="KinematicBody2D" index="0"]
+[node name="KinematicBody2D" type="KinematicBody2D"]
 
 z_index = -1
 input_pickable = false
-collision_layer = 2
-collision_mask = 2
+collision_layer = 4
+collision_mask = 4
 collision/safe_margin = 0.08
 script = ExtResource( 1 )
 _sections_unfolded = [ "Collision", "Z Index" ]
-MOTION_SPEED = 100
+MOTION_SPEED = 150
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="0"]
 
-position = Vector2( -0.658657, 0.111244 )
+position = Vector2( -7.08003, -6.54795 )
 scale = Vector2( 0.590905, 0.606622 )
 shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="." index="1"]
 
-modulate = Color( 1, 0.0117188, 0.0117188, 1 )
-self_modulate = Color( 1, 0.0078125, 0.0078125, 1 )
-position = Vector2( 6.46896, 6.46896 )
-scale = Vector2( 13.3098, 12.9116 )
+modulate = Color( 1, 0.984375, 0, 1 )
+self_modulate = Color( 1, 0.914734, 0.0078125, 1 )
+scale = Vector2( 14.8826, 13.5884 )
 texture = ExtResource( 2 )
 region_enabled = true
 region_rect = Rect2( 0, 0, 1, 1 )
@@ -43,7 +42,7 @@ _sections_unfolded = [ "Region", "Transform", "Visibility" ]
 
 [node name="Area2D" type="Area2D" parent="." index="2"]
 
-position = Vector2( -9.27657, -24.4109 )
+position = Vector2( -8.08742, -23.4596 )
 scale = Vector2( 0.710107, 0.23716 )
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
@@ -55,10 +54,10 @@ audio_bus_name = "Master"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" index="0"]
 
-position = Vector2( 13.0852, 103.409 )
+position = Vector2( 1.31832, 70.147 )
 scale = Vector2( 1.5815, 3.59887 )
 shape = SubResource( 2 )
-_sections_unfolded = [ "Visibility" ]
+_sections_unfolded = [ "Transform" ]
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
 

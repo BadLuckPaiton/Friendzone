@@ -13,16 +13,21 @@ func _ready():
 
 
 func ChangeScene(levelName):
-	#remove_child(map);
-	
-	get_tree().get_root().get_child(1).queue_free();
-	#get_parent().remove_child(get_node("Node2D"));
-	print(levelName);
+	var characterId=CharacterGlobal.currenChar._characterId
+	get_tree().get_root().get_child(2).queue_free();
 	var map=load(levelName);
-	print(map)
 	var node=map.instance();
 	node.name="Node2D";
 	get_tree().get_root().add_child(node);
+	var t = Timer.new()
+	t.set_wait_time(0.02)
+	t.set_one_shot(true)
+	self.add_child(t)
+	t.start()
+	yield(t, "timeout")
+	CharacterGlobal.currenChar=null;
+	CharacterGlobal.ChangeCharacter(characterId,Vector2(0,0));
+	t.queue_free()
 	pass;
 	
 	

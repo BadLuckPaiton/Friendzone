@@ -2,10 +2,10 @@
 
 [ext_resource path="res://World/Test/Enemies/TestEnemy.gd" type="Script" id=1]
 [ext_resource path="res://icon.png" type="Texture" id=2]
-[ext_resource path="res://Character/MainCharacter/Godot-5.png" type="Texture" id=3]
-[ext_resource path="res://Character/MainCharacter/Godot-3.png" type="Texture" id=4]
-[ext_resource path="res://Character/MainCharacter/Godot-4.png" type="Texture" id=5]
-[ext_resource path="res://Character/MainCharacter/Godot-1.png" type="Texture" id=6]
+[ext_resource path="res://Character/MainCharacter/Godot-3.png" type="Texture" id=3]
+[ext_resource path="res://Character/MainCharacter/Godot-5.png" type="Texture" id=4]
+[ext_resource path="res://Character/MainCharacter/Godot-1.png" type="Texture" id=5]
+[ext_resource path="res://Character/MainCharacter/Godot-4.png" type="Texture" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -25,29 +25,29 @@ points = PoolVector2Array( 0, -10, 8.66025, 5, -8.66025, 5 )
 [sub_resource type="SpriteFrames" id=4]
 
 animations = [ {
-"frames": [ ExtResource( 3 ) ],
+"frames": [  ],
 "loop": true,
-"name": "Left",
+"name": "default",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 4 ) ],
+"frames": [ ExtResource( 3 ) ],
 "loop": true,
 "name": "Right",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 5 ) ],
+"frames": [ ExtResource( 4 ) ],
 "loop": true,
-"name": "Down",
+"name": "Left",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 6 ) ],
+"frames": [ ExtResource( 5 ) ],
 "loop": true,
 "name": "Up",
 "speed": 5.0
 }, {
-"frames": [  ],
+"frames": [ ExtResource( 6 ) ],
 "loop": true,
-"name": "default",
+"name": "Down",
 "speed": 5.0
 } ]
 
@@ -223,8 +223,8 @@ tracks/2/keys = {
 }
 
 [node name="KinematicBody2D" type="KinematicBody2D" groups=[
-"Emilio",
 "Enemy",
+"Emilio",
 ]]
 
 modulate = Color( 1, 0, 0, 1 )
@@ -234,7 +234,6 @@ collision_mask = 3
 collision/safe_margin = 0.08
 script = ExtResource( 1 )
 _sections_unfolded = [ "Collision", "Transform", "Visibility" ]
-MOTION_SPEED = 60
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="0"]
 

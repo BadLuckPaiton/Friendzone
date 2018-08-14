@@ -11,7 +11,7 @@ config_version=3
 [application]
 
 config/name="Friendzone"
-run/main_scene="res://World/Test/Test.tscn"
+run/main_scene="res://World/Test/Test_2.tscn"
 config/icon="res://icon.png"
 
 [autoload]

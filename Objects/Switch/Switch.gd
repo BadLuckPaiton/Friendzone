@@ -12,5 +12,4 @@ func _ready():
 
 
 func _on_switch_body_entered(body):
-	print("body");
 	pass # replace with function body
